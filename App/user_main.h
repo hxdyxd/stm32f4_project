@@ -6,7 +6,7 @@
 
 /* LEDS */
 #define LED_OFF(id)  HAL_GPIO_WritePin(id, GPIO_PIN_SET)
-#define LED_ON (id)  HAL_GPIO_WritePin(id, GPIO_PIN_SET)
+#define LED_ON(id)   HAL_GPIO_WritePin(id, GPIO_PIN_RESET)
 #define LED_REV(id)  HAL_GPIO_TogglePin(id)
 
 #define LED_BASE   GPIOD, GPIO_PIN_12
@@ -18,6 +18,7 @@
 #define TEA5767_DEVICE_ID_8BIT   (0x60<<1)
 
 
+void user_system_setup(void);
 void user_setup(void);
 void user_loop(void);
 

@@ -8,6 +8,9 @@
 
 void sdram_init(void)
 {
+#ifdef SWP_FMC_ON
+    SYSCFG->MEMRMP |= 0x400;
+#endif
     FMC_SDRAM_CommandTypeDef fmc_cmd;
     
     fmc_cmd.CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;

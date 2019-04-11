@@ -8,8 +8,14 @@
 
 #define IS42S16400J_SIZE 0x800000  //400000*16bits = 0x800000  ，8M bytes
 
-#define SDRAM_BANK_ADDR     ((uint32_t)0xD0000000)
+//enable xip on sdram
+#define SWP_FMC_ON
 
+#ifdef SWP_FMC_ON
+#define SDRAM_BANK_ADDR     ((uint32_t)0x90000000)
+#else
+#define SDRAM_BANK_ADDR     ((uint32_t)0xD0000000)
+#endif
 
 /**
   * @brief  FMC SDRAM 模式配置的寄存器相关定义
